@@ -1,9 +1,10 @@
+#include <stdint.h> //linux uint8_t
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <soxr.h>
 #include <fdk-aac/aacenc_lib.h>
-#include "fdk-aac/aacdecoder_lib.h"
+#include <fdk-aac/aacdecoder_lib.h>
 #include "g711.h"
 
 #include <unistd.h>
