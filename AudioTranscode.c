@@ -357,6 +357,9 @@ int aacEncode(unsigned char *aac, unsigned char *pcm, int r, int PcmFrameLen) {
     return out_args.numOutBytes;
 }
 
+//https://blog.csdn.net/KayChanGEEK/article/details/103355961
+//https://github.com/WangLCG/LiveStream/blob/master/PCM2AAC/fdk-aac/main.cpp
+//https://blog.csdn.net/u010140427/article/details/127765173
 int pcm2aac(char *pcmfile, char *aacfile) {
     int PcmFrameLen;
     AvAacEncConfig AacConf;
@@ -413,6 +416,12 @@ aacDecoder_DecodeFrame() 用来解码decoder-internal input buffer数据
 如果数据不足以解码 则返回AAC_DEC_NOT_ENOUGH_BITS, 
 此时应该继续调用aacDecoder_Fill填充数据
 */
+//TT_MP4_RAW
+//https://blog.csdn.net/qq_41106435/article/details/128935705
+//https://blog.csdn.net/dong_beijing/article/details/87939673
+//TT_MP4_ADTS
+//https://www.5axxw.com/questions/simple/9uj1en
+//https://www.5axxw.com/questions/simple/ayroci
 int aac2pcm(char *ifile, char *ofile) {
     HANDLE_AACDECODER AacDecoder;
     AAC_DECODER_ERROR err;
