@@ -522,16 +522,23 @@ int aac2pcm(char *ifile, char *ofile) {
     return 0;
 }
 
-int main() {
+//g711x -> aac 11025Hz
+int G711xToAac(void const *iData, int iType, void *oData) {
+    return 0;
+}
+
+//aac -> aac 11025Hz
+int AacToAac(void const *iData, int iSampleRate, void *oData) {
+    return 0;
+}
+
+int Test() {
     struct timeval start , end;
     gettimeofday(&start , NULL);
 
     int ret = -1;
-    ////////////////////////////////////////
-    //g711x -> aac 11025Hz
-    ////////////////////////////////////////
     //8000Hz g711 -> 8000Hz pcm, 都是单声道
-    ret = g711x2pcm("audio/dang.g711a", "audio/000.pcm", 0);
+    ret = g711x2pcm("audio/000.g711a", "audio/000.pcm", 0);
     //ret = g711x2pcm("audio.g711u", "666.pcm", 1);
     printf("=== g711x2pcm ret=%d\n", ret);
 
@@ -543,20 +550,9 @@ int main() {
     ret = pcm2aac("audio/111.pcm", "audio/222.aac");
     printf("=== pcm2aac ret=%d\n", ret);
 
-    ////////////////////////////////////////
-    //aac -> aac 11025Hz
-    ////////////////////////////////////////
-    //22050Hz aac -> 22050Hzpcm
-    ret = aac2pcm("audio/audio22050.aac", "audio/333.pcm");
+    //11025Hz aac -> 11025Hz pcm
+    ret = aac2pcm("audio/222.aac", "audio/333.pcm");
     printf("=== aac2pcm ret=%d\n", ret);
-
-    //22050Hz pcm -> 11025Hz pcm
-    ret = resample("audio/333.pcm", "audio/444.pcm", 22050, 11025, 1, S16LE, HighQ);
-    printf("=== resample ret=%d\n", ret);
-
-    //11025Hz pcm -> 11025Hz aac
-    ret = pcm2aac("audio/444.pcm", "audio/555.aac");
-    printf("=== pcm2aac ret=%d\n", ret);
 
     gettimeofday(&end , NULL);
     long cost = (end.tv_sec - start.tv_sec) * 1000 * 1000 + (end.tv_usec - start.tv_usec) ;

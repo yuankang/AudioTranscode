@@ -1,6 +1,10 @@
 .DS_Store
 *.swp
 AudioTranscode
+libAudioTranscode.so
+audio/000.pcm
 audio/111.pcm
 audio/222.aac
 audio/333.pcm
+audio/444.pcm  
+audio/555.aac
