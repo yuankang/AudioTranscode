@@ -1,3 +1,6 @@
 .DS_Store
 *.swp
 AudioTranscode
+audio/111.pcm
+audio/222.aac
+audio/333.pcm
